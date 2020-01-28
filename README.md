@@ -6,7 +6,7 @@ REST api interface to make delayed jobs with [pg-boss](https://github.com/timgit
 
 ## FEATURES
 
-1. swagger UI for frontend developers
+1. swagger UI for developers
 2. use [pg-boss](https://github.com/timgit/pg-boss) for delayed jobs with psql
 3. add delayed job with variables
 4. view list of delayed jobs
@@ -26,7 +26,32 @@ npm install @plcgi1/fastify-delayed-job
 
 ## USAGE
 
-Full usage example in ./examples folder
+Full usage example in ./examples folder. You can use it as boilerplate too
+
+```
+mkdir your-project
+cd your-project
+npm init
+cp node_modules/@plcgi1/fastify-delayed-job/examples .
+npm install
+
+# edit .env file with your requirements
+# create required database
+# add subscribers logic.
+#   Interface example in src/subscribers/default.js
+
+npm start
+
+# go to browser - http://localhost:3000/docs
+
+```
+
+### ADDITIONAL fastify objects
+
+fastify.pgboss
+req.pgboss
+fastify.subscribers
+req.subscribers
 
 ## ISSUES
 
