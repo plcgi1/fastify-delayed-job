@@ -48,10 +48,10 @@ npm start
 
 ### ADDITIONAL fastify objects
 
-fastify.pgboss
-req.pgboss
-fastify.subscribers
-req.subscribers
+1. fastify.pgboss
+2. req.pgboss
+3. fastify.subscribers
+4. req.subscribers
 
 ## ISSUES
 
