@@ -67,7 +67,11 @@ const start = async () => {
     // add this plugin, in real world = require('fastify-delayed-job', { db: {...}, subscribersPath: ...})
     fastify.register(require('../'), {
       db: config.db,
-      subscribersPath: config.pgboss.subscribersPath
+      subscribersPath: config.pgboss.subscribersPath,
+      authHandler: (req, reply, next) => {
+        console.info('Demo.authHandler', req)
+        return next();
+      }
     })
 
     await fastify.ready()

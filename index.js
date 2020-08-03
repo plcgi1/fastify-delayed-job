@@ -51,6 +51,7 @@ const init = async (fastify, config, done) => {
     console.info('Pgboss started')
   }
 
+  fastify.decorate('fpDelayedJobConfig', config)
   fastify.decorate('subscribers', subscribers)
   fastify.decorateRequest('subscribers', subscribers)
   fastify.decorateRequest('pgboss', boss)

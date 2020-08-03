@@ -6,10 +6,17 @@ const sanitizeContent = require('../../middleware/sanitize-content')
 async function routes (fastify, options) {
   const schema = schemaBuilder(fastify)
 
+  const defaultPreHandler = () => {}
+
+  const authHandler = fastify.fpDelayedJobConfig.authHandler
+    ? fastify.fpDelayedJobConfig.authHandler
+    : defaultPreHandler;
+
   fastify
     .get(
       '/list',
       {
+        preHandler: [authHandler],
         schema: {
           query: schema.list.query,
           summary: 'Tasks list',
@@ -62,6 +69,7 @@ async function routes (fastify, options) {
       '/',
       {
         preValidation: [sanitizeContent],
+        preHandler: [authHandler],
         schema: {
           body: schema.create.body,
           summary: 'Add new task for scheduled workers',
@@ -92,6 +100,7 @@ async function routes (fastify, options) {
     .delete(
       '/:id',
       {
+        preHandler: [authHandler],
         schema: {
           params: commonSchema.params,
           summary: 'Remove task',
