@@ -16,7 +16,7 @@
     "fastify-plugin": "^1.6.0",
     "fastify-swagger": "^2.5.0",
     "mongo-sql": "^6.2.0",
-    "pg": "^7.17.1",
+    "pg": "^8.13.1",
     "pg-boss": "^3.2.2",
     "sanitize-html": "^2.3.2"
   }
